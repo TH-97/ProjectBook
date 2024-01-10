@@ -74,10 +74,9 @@ public class UserDAO {
 				+ "user_pw,"
 				+ "user_name,"
 				+ "user_email,"
-				+ "user_adress,"
-				+ "user_gender,"
-				+ "user_balance)"
-					+"values(?,?,?,?,?,?,?)";
+				+ "user_address,"
+				+ "user_gender)"
+					+"values(?,?,?,?,?,?)";
 		
 		try {
 			conn = dataSource.getConnection();
@@ -91,6 +90,7 @@ public class UserDAO {
 			pstmt.setString(5,vo.getUser_address());
 			pstmt.setString(6,vo.getUser_gender());
 			
+			pstmt.executeQuery();
 			
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -161,6 +161,9 @@ public class UserController extends HttpServlet {
 				out.println("</script>");
 				
 			}
+		}else if(path.equals("/user/serach.user")) {
+			
+			
 		}
 	}
 
