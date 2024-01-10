@@ -73,7 +73,7 @@
                 <ul class="nav navbar-nav">
                 	
                     <li>
-                        <a href="">홈</a>
+                        <a href="${pageContext.request.contextPath }/home.jsp">홈</a>
                     </li>
                      <li>
                         <a href="">내도서판매</a>
@@ -89,10 +89,10 @@
                  	<c:choose>
                  	<c:when test="${sessionScope.user_id == null }">
 	                    <li>
-	                        <a href="">로그인</a>
+	                        <a href="${pageContext.request.contextPath }/user/login.user" style="color:red">로그인</a>
 	                    </li>
 	                    <li>
-	                        <a href="" style="color:red">회원가입</a>
+	                        <a href="${pageContext.request.contextPath }/user/join.user" style="color:orange;">회원가입</a>
 	                    </li>
                     </c:when>
                     <c:otherwise>

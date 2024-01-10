@@ -22,16 +22,17 @@ public class UserServiceImpl implements UserService{
 		String email = request.getParameter("user_email");
 		String address = request.getParameter("user_address");
 		String gender = request.getParameter("user_gender");
-		int balance = Integer.valueOf(request.getParameter("user_balance"));
+
 		
 		int result = dao.idCheck(id);
 		
 		if(result == 1) {//아이디 중복
 			return 1;
 		}else {
-			UserVO vo = new UserVO(id, pw, name, email, address, gender, balance);
+			UserVO vo = new UserVO(id, pw, name, email, address, gender, 0);
+			dao.insertUser(vo);
+			return 0;
 		}
-		return result;
 	}
 
 	@Override
