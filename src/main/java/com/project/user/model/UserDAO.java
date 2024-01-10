@@ -238,17 +238,20 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update users set user_balance = ? where user_id = ?";
+		String sql = "update users set user_balance = user_balance + ? where user_id = ?";
+		
 		
 		try {
 			conn = dataSource.getConnection();
-			
 			pstmt = conn.prepareStatement(sql);
+			
+			//현재 금액 받고 그 금액에서 +
 			
 			pstmt.setInt(1,deposit);
 			pstmt.setString(2, id);
 			
 			result = pstmt.executeUpdate();
+			//deposit 출력해주기 
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -256,7 +259,7 @@ public class UserDAO {
 			DButil.close(conn, pstmt, null);
 		}
 		
-		return result ;
+		return result ;//1이면 성공 , 0 이면 실패
 	}
 
 }
