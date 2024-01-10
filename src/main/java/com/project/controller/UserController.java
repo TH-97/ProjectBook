@@ -133,9 +133,34 @@ public class UserController extends HttpServlet {
 
 				request.getRequestDispatcher("user_delete.jsp").forward(request, response);
 			}
-		}else if(path.equals("/user/balance.user")) {
+		}else if(path.equals("/user/deposit.user")) {
+			
+			request.getRequestDispatcher("user_deposit.jsp");
+		}else if(path.equals("/user/depositForm.user")) {
 			int result = service.add_balance(request, response);
 			
+			if(result == 1) {
+				
+				response.setContentType("text/html; charSet = UTF-8");
+				PrintWriter out = response.getWriter();
+				
+				out.println("<script>");
+				out.println("alert('입금이 완료되었습니다')");
+				out.println("location.href='mypage.user'");
+				out.println("</script>");
+				
+				
+			}else {
+				
+				response.setContentType("text/html; charSet = UTF-8");
+				PrintWriter out = response.getWriter();
+				
+				out.println("<script>");
+				out.println("alert('입금 실패! 다시 시도해 주십시오')");
+				out.println("location.href='mypage.user'");
+				out.println("</script>");
+				
+			}
 		}
 	}
 

@@ -1,5 +1,7 @@
 package com.project.user.service;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -96,9 +98,14 @@ public class UserServiceImpl implements UserService{
 	public int add_balance(HttpServletRequest request, HttpServletResponse response) {
 		int result = 0 ;
 		
-		result = dao.add_balance(null, result);
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("user_id");
+		
+		String deposit = request.getParameter("deposit");
+		
+		result = dao.add_balance(id,Integer.valueOf(deposit) );
 		
 		return result;
 	}
-
+	
 }
