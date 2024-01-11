@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserVO login(HttpServletRequest request, HttpServletResponse response) {
 		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String id = request.getParameter("user_id");
+		String pw = request.getParameter("user_pw");
 		UserVO vo = dao.login(id, pw);
 		return vo;
 	}
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService{
 		String id = (String)session.getAttribute("user_id");
 		
 		//getUserInfo 호출
-		UserVO vo = dao.getUserInfo("user_id");
+		UserVO vo = dao.getUserInfo(id);
 		return vo;
 	}
 

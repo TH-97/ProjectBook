@@ -8,4 +8,5 @@
 
 </body>
 </html>
+<%@ include file="../include/aside.jsp" %>
 <%@ include file = "/include/footer.jsp" %>

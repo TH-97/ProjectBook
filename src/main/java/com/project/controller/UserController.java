@@ -68,7 +68,7 @@ public class UserController extends HttpServlet {
 				session.setAttribute("user_id", vo.getUser_id());
 				session.setAttribute("user_name", vo.getUser_name());
 
-				response.sendRedirect(request.getContextPath());// 홈 화면
+				response.sendRedirect(request.getContextPath()+"/home.jsp");// 홈 화면
 			}else { //로그인 실패
 				request.setAttribute("msg", "아이디 비밀번호를 확인하세요");
 				request.getRequestDispatcher("user_login.jsp").forward(request, response);
@@ -77,7 +77,7 @@ public class UserController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.invalidate();
 
-			response.sendRedirect(request.getContextPath());//홈화면
+			response.sendRedirect(request.getContextPath()+"/home.jsp");//홈화면
 		}else if(path.equals("/user/mypage.user")) {//마이페이지
 
 			request.getRequestDispatcher("user_mypage.jsp").forward(request, response);
