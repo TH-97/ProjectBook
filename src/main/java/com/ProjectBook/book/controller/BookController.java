@@ -40,14 +40,14 @@ public class BookController extends HttpServlet {
 		
 		//서비스 영역 선언
 		BookServiceImpl service = new BookServiceImpl();
-		
+		//책 찾기
 		if(path.equals("/book/search.book")) { 
 			
 			ArrayList<BookVO> list = service.searchBook(request, response);
 			request.setAttribute("list", list);	
 			
 			request.getRequestDispatcher("book_search.jsp").forward(request, response);
-			
+		// 내 책 등록
 		}if(path.equals("/book/sell.book")) {
 			int result = 0;
 			result = service.insertBook(request, response);

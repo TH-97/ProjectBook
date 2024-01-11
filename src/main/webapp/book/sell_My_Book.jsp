@@ -48,6 +48,10 @@ select {
 	<table border="1" class="custom-table1">
 		<thead>
 			<tr>
+				<th>이미지경로</th>
+				<th><input type="text" name="img"></th>
+			</tr>
+			<tr>
 				<th>제목</th>
 				<th><input type="text" name="book_name"></th>
 			</tr>
@@ -63,7 +67,7 @@ select {
 			</tr>
 			<tr>
 				<td>출판일</td>
-				<td><input type="date" name="book_releasedate"></td>
+				<td><input type="text" name="book_releasedate" placeholder="2023/01/01"></td>
 			</tr>
 			<tr>
 				<td>카테고리</td>
@@ -72,6 +76,7 @@ select {
 						<option value="경제경영">경제경영</option>
 						<option value="소설시희곡">소설시희곡</option>
 						<option value="인문학">인문학</option>
+						<option value="IT">IT</option>
 				</select></td>
 			</tr>
 			<tr>
