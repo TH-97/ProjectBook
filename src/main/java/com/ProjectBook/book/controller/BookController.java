@@ -1,6 +1,7 @@
 package com.ProjectBook.book.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -46,6 +47,30 @@ public class BookController extends HttpServlet {
 			request.setAttribute("list", list);	
 			
 			request.getRequestDispatcher("book_search.jsp").forward(request, response);
+			
+		}if(path.equals("/book/sell.book")) {
+			int result = 0;
+			result = service.insertBook(request, response);
+			
+			if(result == 1) { //성공
+				// 스크립트 언어
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('정상적으로 판매되었습니다');");
+				out.println("location.href='/ProjectBook/home.jsp'; ");//홈화면 가기
+				out.println("</script>");
+				
+			}else { //실패 
+				//스크립트 언어
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('정확히 기입해주십시오');");
+				out.println("location.href='sell_My_Book.jsp'; ");//홈화면 가기
+				out.println("</script>");
+				
+			}
 			
 		}
 		
