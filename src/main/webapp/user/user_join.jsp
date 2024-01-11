@@ -57,7 +57,7 @@ input {
 				<td>성별</td>
 				<td><input type="radio" name="user_gender" value="M" checked>남자
 				</td>
-				<td><input type="radio" name="user_gender" value="W">
+				<td><input type="radio" name="user_gender" value="F">
 					여자</td>
 			</tr>
 

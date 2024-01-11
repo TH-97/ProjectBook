@@ -97,10 +97,10 @@
                     </c:when>
                     <c:otherwise>
    	                    <li>
-	                        <a href="">로그아웃</a>
+	                        <a href="${pageContext.request.contextPath }/user/logout.user" style = "color:red">로그아웃</a>
 	                    </li>
 	                    <li>
-	                        <a href="" style="color:red">마이페이지</a>
+	                        <a href="${pageContext.request.contextPath }/user/mypage.user" style="color:orange">마이페이지</a>
 	                    </li>
                     </c:otherwise>
                     </c:choose>

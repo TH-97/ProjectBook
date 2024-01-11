@@ -13,13 +13,13 @@
 		${sessionScope.user_id }<b style="color:green;">(${sessionScope.user_name })</b>님의 정보
 		</p>
 
-		<a href="">[내정보 조회]</a><br>
+		<a href="">[작성글보기]</a><br>
 		
-		<a href="">[LOVE]</a><br>
+		<a href="">[좋아요♥ 목록]</a><br>
 		
-		<a href="">[내정보 수정]</a><br>
+		<a href="${pageContext.request.contextPath}/user/update.user">[내정보 수정]</a><br>
 		
-		<a href="">[탈퇴]</a><br>
+		<a href="${pageContext.request.contextPath }/user/delete.user">[탈퇴]</a><br>
 		
 		
 

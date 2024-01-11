@@ -68,7 +68,7 @@ public class UserController extends HttpServlet {
 				session.setAttribute("user_id", vo.getUser_id());
 				session.setAttribute("user_name", vo.getUser_name());
 
-				response.sendRedirect(request.getContextPath());// 홈 화면
+				response.sendRedirect(request.getContextPath()+"/home.jsp");// 홈 화면
 			}else { //로그인 실패
 				request.setAttribute("msg", "아이디 비밀번호를 확인하세요");
 				request.getRequestDispatcher("user_login.jsp").forward(request, response);
@@ -77,7 +77,7 @@ public class UserController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.invalidate();
 
-			response.sendRedirect(request.getContextPath());//홈화면
+			response.sendRedirect(request.getContextPath()+"/home.jsp");//홈화면
 		}else if(path.equals("/user/mypage.user")) {//마이페이지
 
 			request.getRequestDispatcher("user_mypage.jsp").forward(request, response);
@@ -116,10 +116,9 @@ public class UserController extends HttpServlet {
 
 			request.getRequestDispatcher("user_delete.jsp").forward(request, response);
 
-		}else if(path.equals("/user/delteForm.user")) { //회원탈퇴 요청
-			int result = service.delete(request, response);
-
-			if(result ==1) {
+		}else if(path.equals("/user/deleteForm.user")) { //회원탈퇴 요청
+			
+				service.delete(request, response);
 
 				response.setContentType("text/html; charSet = UTF-8");
 				PrintWriter out = response.getWriter();
@@ -128,42 +127,35 @@ public class UserController extends HttpServlet {
 				out.println("alert('삭제가 완료되었습니다')");
 				out.println("location.href='/ProjectBook/home.jsp';");
 				out.println("</script>");
-			}else {
-				request.setAttribute("msg", "비밀번호를 확인하세요");
-
-				request.getRequestDispatcher("user_delete.jsp").forward(request, response);
-			}
-		}else if(path.equals("/user/deposit.user")) {
+		
 			
-			request.getRequestDispatcher("user_deposit.jsp");
-		}else if(path.equals("/user/depositForm.user")) {
-			int result = service.add_balance(request, response);
-			
+		}else if(path.equals("/user/deleteForm1.user")) {
+			int result = 0;
+			result = service.idcheck(request, response);
+			System.out.println(result);
 			if(result == 1) {
-				
 				response.setContentType("text/html; charSet = UTF-8");
 				PrintWriter out = response.getWriter();
 				
 				out.println("<script>");
-				out.println("alert('입금이 완료되었습니다')");
-				out.println("location.href='mypage.user'");
+				out.println("if (confirm('정말 삭제하시겠습니까?')) {");
+				out.println("  location.href='deleteForm.user';");
+				out.println("} else {");
+				out.println(" location.href='mypage.user';");
+				out.println("}");
 				out.println("</script>");
-				
-				
+						
 			}else {
-				
-				response.setContentType("text/html; charSet = UTF-8");
+				response.setContentType("text/html; charset=UTF-8");
+
 				PrintWriter out = response.getWriter();
-				
 				out.println("<script>");
-				out.println("alert('입금 실패! 다시 시도해 주십시오')");
-				out.println("location.href='mypage.user'");
+				out.println("alert('비밀번호를 확인해주세요')");
+				out.println("location.href='user_delete.jsp';");
 				out.println("</script>");
 				
+
 			}
-		}else if(path.equals("/user/serach.user")) {
-			
-			
 		}
 	}
 

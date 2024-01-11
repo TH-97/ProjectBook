@@ -11,6 +11,6 @@ public interface UserService {
 	public UserVO login(HttpServletRequest request , HttpServletResponse response);
 	public UserVO getUserInfo(HttpServletRequest request , HttpServletResponse response);
 	public int update(HttpServletRequest request , HttpServletResponse response);
-	public int delete(HttpServletRequest request , HttpServletResponse response);
-	public int add_balance(HttpServletRequest request , HttpServletResponse response);
+	public void delete(HttpServletRequest request , HttpServletResponse response);
+	public int idcheck(HttpServletRequest request , HttpServletResponse response);
 }
