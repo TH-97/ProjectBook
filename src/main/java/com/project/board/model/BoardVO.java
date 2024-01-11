@@ -14,7 +14,7 @@ public class BoardVO {
 	public BoardVO() {
 	}
 
-	public BoardVO(int bul_num, String writer, String title, String content, int like_count, Timestamp regdate,String user_id) {
+	public BoardVO(int bul_num, String title, String content, int like_count, Timestamp regdate,String user_id) {
 		super();
 		this.bul_num = bul_num;
 		this.title = title;
