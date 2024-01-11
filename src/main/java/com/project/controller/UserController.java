@@ -44,6 +44,8 @@ public class UserController extends HttpServlet {
 
 		UserService service = new UserServiceImpl();
 
+		
+		//받는부분
 		if(path.equals("/user/join.user")) { //가입화면
 			request.getRequestDispatcher("user_join.jsp").forward(request, response);
 
