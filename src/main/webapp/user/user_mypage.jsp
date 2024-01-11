@@ -17,7 +17,7 @@
 		
 		<a href="">[LOVE]</a><br>
 		
-		<a href="">[내정보 수정]</a><br>
+		<a href="${pageContext.request.contextPath }/user/update.user">[내정보 수정]</a><br>
 		
 		<a href="">[탈퇴]</a><br>
 		
