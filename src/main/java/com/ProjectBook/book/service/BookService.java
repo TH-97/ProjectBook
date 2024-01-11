@@ -10,6 +10,7 @@ import com.ProjectBook.book.model.BookVO;
 public interface BookService {
 	
 	public ArrayList<BookVO> searchBook (HttpServletRequest request, HttpServletResponse response);
+	public int insertBook (HttpServletRequest request, HttpServletResponse response);
 	
 
 }

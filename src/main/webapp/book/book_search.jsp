@@ -10,7 +10,8 @@ form {
 
 table {
 	width: 33%;
-	height: 200px; margin-left : auto;
+	height: 200px;
+	margin-left: auto;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -29,7 +30,7 @@ td {
 </head>
 <body>
 	<div>
-		<form action="" method="post">
+		<form action="search.book" method="post">
 			<label for="search">도서 검색:</label> <input type="text"
 				name="search_book" placeholder="검색어를 입력하세요..."> <input
 				type="submit" value="검색" class="btn btn-default">
@@ -40,11 +41,14 @@ td {
 
 
 		<c:forEach var="vo" items="${list}">
+		<!-- hidden태그는 보여주고 싶지 않은 데이터를 숨겨서 전송할때 사용합니다. -->
+		<input type="hidden" name="book_num" value="${vo.book_num}">
 			<table border="1">
 				<thead>
 					<tr>
 						<td rowspan="7">이미지</td>
-						<td style="height: 40px;font-size:20px">${vo.book_name}</td>
+						<td style="height: 40px; font-size: 20px">${vo.book_name}</td>
+						<td rowspan="3"><input type="button" value="구매하기" onclick="location.href='buy.book?book_num=${vo.book_num}'; "></td>
 					</tr>
 					<tr>
 						<td>${vo.book_author}</td>
@@ -52,14 +56,22 @@ td {
 					<tr>
 						<td>${vo.book_category}</td>
 					</tr>
+
 					<tr>
 						<td>${vo.book_price}</td>
+						
+						
+						<td rowspan="2"><input type="button" value="장바구니" onclick="location.href='goBasket.book?book_num=${vo.book_num}'; "></td>
+							
+						
 					</tr>
+
 					<tr>
 						<td>좋아요:${vo.love}</td>
 					</tr>
 					<tr>
 						<td>등급:${vo.book_grade}</td>
+						<td rowspan="2"><input type="button" value="좋아요" onclick="location.href='love.book?book_num=${vo.book_num}'; "></td>
 					</tr>
 					<tr>
 						<td>재고:${vo.book_stock}</td>
