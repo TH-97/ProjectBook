@@ -53,11 +53,28 @@ public class UserController extends HttpServlet {
 		}else if(path.equals("/user/joinForm.user")) {
 			int result = service.join(request,response);
 			if(result == 1) { //아이디 이미 존재
-				request.setAttribute("msg", "아이디가 중복되었습니다");
-				request.getRequestDispatcher("user_join.jsp").forward(request, response);
+				response.setContentType("text/html; charSet = UTF-8");
+				PrintWriter out = response.getWriter();
+				
+				out.println("<script>");
+				out.println("alert('중복된 아이디입니다')");
+				out.println("location.href='join.user';");
+				out.println("</script>");
+				
+//				request.setAttribute("msg", "아이디가 중복되었습니다");
+//				request.getRequestDispatcher("user_join.jsp").forward(request, response);
 			}else {
-				request.setAttribute("msg", "회원가입이 되었습니다");
-				response.sendRedirect("login.user");
+				
+				response.setContentType("text/html; charSet = UTF-8");
+				PrintWriter out = response.getWriter();
+				
+				out.println("<script>");
+				out.println("alert('회원가입이 완료되었습니다')");
+				out.println("location.href='login.user';");
+				out.println("</script>");
+				
+//				request.setAttribute("msg", "회원가입이 되었습니다");
+//				response.sendRedirect("login.user");
 			}
 		}else if(path.equals("/user/loginForm.user")) {
 			UserVO vo = service.login(request, response);
@@ -70,8 +87,16 @@ public class UserController extends HttpServlet {
 
 				response.sendRedirect(request.getContextPath()+"/home.jsp");// 홈 화면
 			}else { //로그인 실패
-				request.setAttribute("msg", "아이디 비밀번호를 확인하세요");
-				request.getRequestDispatcher("user_login.jsp").forward(request, response);
+				response.setContentType("text/html; charSet = UTF-8");
+				PrintWriter out = response.getWriter();
+				
+				out.println("<script>");
+				out.println("alert('아이디 비밀번호를 확인하세요')");
+				out.println("location.href='login.user';");
+				out.println("</script>");
+				
+//				request.setAttribute("msg", "아이디 비밀번호를 확인하세요");
+//				request.getRequestDispatcher("user_login.jsp").forward(request, response);
 			}
 		}else if(path.equals("/user/logout.user")) {//로그아웃
 			HttpSession session = request.getSession();

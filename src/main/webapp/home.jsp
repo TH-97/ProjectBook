@@ -11,28 +11,49 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-.ser {
-	box-shadow: 0 0 20px #795cfa, 0 0 40px #b5a5fa;
-	padding: 15px 0px;
-	background-color: none;
-	display: flex;
-	border-radius: 20px;
-	width: 450px;
-	vertical-align: middle;
-	text-align: center;
-	box-sizing: 80px;
-}
+.ser{
+   box-shadow: 0 0 20px #795cfa, 0 0 40px #b5a5fa;
+   padding: 15px 0px;
+   background-color: none;   
+   border-radius: 20px;
+   width: 450px;
+   vertical-align: middle;
+   text-align: center;
+   box-sizing: 80px;
+   font-size: 35px
+    align-items: center;
+    float: center;
 
-form {
-	font-size: 35px display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
-
-.ser::palceholder {
-	color: rgb(153, 153, 204);
-	font-size: var;
+form{
+   font-size: 35px
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    float: center;
+   line-height: 50px;
+   vertical-align: middle;
+   text-align: center;
+   
+}
+span{
+   font-size: 35px
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    float: center;
+   line-height: 50px;
+   vertical-align: middle;
+   text-align: center;
+}
+.ser::palceholder{
+   color: rgb(153 153 204);
+   font-size: var;
+}
+body{
+   background-color:linearGradient(105deg, rgb(136, 124, 241/100%) 39%, rgb(124, 241, 192/ 100%) 96%);
 }
 </style>
 </head>
