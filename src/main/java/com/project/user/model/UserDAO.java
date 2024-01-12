@@ -21,7 +21,7 @@ public class UserDAO {
 		try {
 			InitialContext init = new InitialContext();
 			
-			dataSource = (DataSource)init.lookup("java:comp/env/jdbc/oracle1");
+			dataSource = (DataSource)init.lookup("java:comp/env/jdbc/oracle");
 			
 		} catch (Exception e) {
 			// TODO: handle exception

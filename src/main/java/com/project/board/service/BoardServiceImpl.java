@@ -22,8 +22,9 @@ public class BoardServiceImpl implements BoardService {
 		String writer = request.getParameter("writer");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
-		
-		dao.insert(writer, title, content);
+		String state = request.getParameter("state");
+			
+		dao.insert(writer, title, content,state);
 		
 	}
 
@@ -38,8 +39,8 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardVO getContent(HttpServletRequest request, HttpServletResponse response) {
 		
-		String bno = request.getParameter("bno");	
-		BoardVO vo = dao.getContent(bno);
+		String bul_num = request.getParameter("bul_num");	
+		BoardVO vo = dao.getContent(bul_num);
 		
 		return vo;
 	}
@@ -47,20 +48,22 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int update(HttpServletRequest request, HttpServletResponse response) {
 		
-		String bno = request.getParameter("bno");
+		String bul_num = request.getParameter("bul_num");
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		String state = request.getParameter("state");
 		
-		int result = dao.update(bno, title, content);
-		
+		int result = dao.update(bul_num, title, content , state);
+		System.out.println(state);
 		return result;
 	}
 
 	@Override
 	public void delete(HttpServletRequest request, HttpServletResponse response) {
 		
-		String bno = request.getParameter("bno");
-		dao.delete(bno);
+		String bul_num = request.getParameter("bul_num");
+		System.out.println(bul_num);
+		dao.delete(bul_num);
 	}
 
 	
@@ -71,7 +74,7 @@ public class BoardServiceImpl implements BoardService {
 		//Cookie coo = new Cookie(키, 값)
 		//coo.setMaxAge(30)
 		//response.addCookie(coo)
-		String bno = request.getParameter("bno");
+		String bul_num = request.getParameter("bul_num");
 
 		String cooValue = "";
 		boolean flag = true; //if문의 실행여부
@@ -82,7 +85,7 @@ public class BoardServiceImpl implements BoardService {
 				
 				if(c.getName().equals("hit")) { //hit쿠키가 있다.
 					cooValue = c.getValue(); //쿠키의 값을 저장
-					if(c.getValue().contains(bno)) {
+					if(c.getValue().contains(bul_num)) {
 						System.out.println(true);
 						flag = false;
 					} 
@@ -91,8 +94,8 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 		if(flag) { //if문을 실행 안했음.
-			dao.hitUpdate(bno);
-			cooValue += bno + "-";
+			dao.hitUpdate(bul_num);
+			cooValue += bul_num + "-";
 		}
 
 		Cookie coo = new Cookie("hit", cooValue);

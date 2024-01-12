@@ -51,13 +51,13 @@ public class BoardDAO {
 	private DataSource dataSource;
 	
 	//글등록
-	public void insert(String writer, String title, String content) {
+	public void insert(String writer, String title, String content, String state) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into board(bno, writer, title, content) "
-				   + "values(board_seq.nextval, ?, ?, ? )";
+		String sql = "insert into board(bul_num, writer, title, content, state) "
+				   + "values(board_seq2.nextval, ?, ?, ? ,?)";
 		
 		try {
 			
@@ -67,6 +67,7 @@ public class BoardDAO {
 			pstmt.setString(1, writer );
 			pstmt.setString(2, title );
 			pstmt.setString(3, content );
+			pstmt.setString(4, state);
 			
 			pstmt.executeUpdate();
 						
@@ -88,7 +89,7 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from board order by bno desc";
+		String sql = "select * from board order by bul_num desc";
 		
 		try {
 			
@@ -103,11 +104,14 @@ public class BoardDAO {
 				int bul_num = rs.getInt("bul_num");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
-				int like_count = rs.getInt("like_count");
 				Timestamp regdate = rs.getTimestamp("regdate");
-				String user_id = rs.getString("user_id");
+				int like_count = rs.getInt("like_count");
+				String writer = rs.getString("writer");
+				int hit = rs.getInt("hit");
+				String state = rs.getString("state");
 				
-				BoardVO vo = new BoardVO(bul_num, title, content, like_count, regdate, user_id);
+				BoardVO vo =new BoardVO(bul_num, title, content, regdate, like_count, writer, hit,state);
+						;
 								
 				list.add(vo);
 			}
@@ -123,7 +127,7 @@ public class BoardDAO {
 	}
 	
 	//내용조회
-	public BoardVO getContent(String bno) {
+	public BoardVO getContent(String bul_num) {
 		
 		BoardVO vo = new BoardVO(); //
 		
@@ -138,25 +142,29 @@ public class BoardDAO {
 			conn = dataSource.getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bno);
+			pstmt.setString(1, bul_num);
 			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				
-				int bul_num = rs.getInt("bul_num");
-				String user_id = rs.getString("user_id");
+				int bul_num2 = rs.getInt("bul_num");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
-				int like_count = rs.getInt("like_count");
 				Timestamp regdate = rs.getTimestamp("regdate");
+				int like_count = rs.getInt("like_count");
+				String writer = rs.getString("writer");
+				int hit = rs.getInt("hit");
+				String state = rs.getString("state");
 				
-				vo.setBul_num(bul_num);
-				vo.setUser_id(user_id);
+				vo.setBul_num(bul_num2);
 				vo.setTitle(title);
 				vo.setContent(content);
-				vo.setLike_count(like_count);
 				vo.setRegdate(regdate);
+				vo.setLike_count(like_count);
+				vo.setWriter(writer);
+				vo.setHit(hit);
+				vo.setState(state);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -168,13 +176,13 @@ public class BoardDAO {
 	}
 	
 	//글 수정
-	public int update(String bul_num, String title, String content) {
+	public int update(String bul_num, String title, String content , String state) {
 		int result = 0;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update board set title = ?, content = ? where bul_num = ?";
+		String sql = "update board set title = ?, content = ?, state = ? where bul_num = ?";
 		
 		try {
 			conn = dataSource.getConnection();
@@ -182,7 +190,8 @@ public class BoardDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, title );
 			pstmt.setString(2, content );
-			pstmt.setString(3, bul_num );
+			pstmt.setString(3, state);
+			pstmt.setString(4, bul_num );
 			
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -225,7 +234,7 @@ public class BoardDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update board set like_count = like_count + 1 where bul_num = ?";
+		String sql = "update board set hit = hit + 1 where bul_num = ?";
 		
 		try {
 			
@@ -243,6 +252,27 @@ public class BoardDAO {
 			JdbcUtil.close(conn, pstmt, null);
 		}
 		
+	}
+	public void lcupdate(String bul_num) {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update board set like_count = like_count + 1 where bul_num = ?";
+		
+		try {
+			conn = dataSource.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bul_num);
+			
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			JdbcUtil.close(conn, pstmt, null);
+		}
 	}
 	
 	

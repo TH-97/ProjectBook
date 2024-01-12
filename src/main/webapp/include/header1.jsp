@@ -118,8 +118,7 @@
 			<li><a class="home" href="${pageContext.request.contextPath }/home.jsp">홈</a></li>
 			</div>
 			<ul class="listst">
-				<li><a class="lists" href="${pageContext.request.contextPath }">팔래</a></li>
-				<li><a class="lists" href="${pageContext.request.contextPath }">살래</a></li>
+				<li><a class="lists" href="${pageContext.request.contextPath }/book/list.board">팔래</a></li>
 			</ul>
 			<ul class="logmain">
 				<c:choose>

@@ -49,31 +49,31 @@ public class BoardController extends HttpServlet {
 		BoardService service = new BoardServiceImpl();
 		
 		
-		if(path.equals( "/board/list.board"  )) { //목록화면
+		if(path.equals( "/book/list.board"  )) { //목록화면
 			
 			//목록데이터를 가지고 화면으로 이동
 			ArrayList<BoardVO> list = service.getList(request, response);
 			request.setAttribute("list", list);			
-			request.getRequestDispatcher("board_list.jsp").forward(request, response);
+			request.getRequestDispatcher("bookboard_list.jsp").forward(request, response);
 			
-		} else if( path.equals("/board/write.board") ) { //글쓰기화면
+		} else if( path.equals("/book/write.board") ) { //글쓰기화면
 			
-			request.getRequestDispatcher("board_write.jsp").forward(request, response);
+			request.getRequestDispatcher("bookboard_write.jsp").forward(request, response);
 			
-		} else if( path.equals("/board/registForm.board") ) { //글 등록
+		} else if( path.equals("/book/registForm.board") ) { //글 등록
 		
 			service.regist(request, response);
 			//MVC2에서는 redirect를 다시 컨트롤러 연결하는 형태로 사용
 			response.sendRedirect("list.board");
 			
-		} else if( path.equals("/board/content.board") ) {
+		} else if( path.equals("/book/content.board") ) {
 			
 			service.hitUpdate(request, response); //조회수
 			BoardVO vo = service.getContent(request, response); //내용조회
 			request.setAttribute("vo", vo);
 			
-			request.getRequestDispatcher("board_content.jsp").forward(request, response);
-		} else if( path.equals("/board/modify.board") ) {
+			request.getRequestDispatcher("bookboard_content.jsp").forward(request, response);
+		} else if( path.equals("/book/modify.board") ) {
 			
 			/*
 			1. 화면에서는 필요한 값을 넘겨주세요.
@@ -83,9 +83,9 @@ public class BoardController extends HttpServlet {
 			*/
 			BoardVO vo = service.getContent(request, response);
 			request.setAttribute("vo", vo);
-			request.getRequestDispatcher("board_modify.jsp").forward(request, response);
+			request.getRequestDispatcher("bookboard_modify.jsp").forward(request, response);
 			
-		} else if( path.equals("/board/update.board") ) {
+		} else if( path.equals("/book/update.board") ) {
 			
 			/*
 			1. service, dao에 int update(매개값) 를 생성하세요.
@@ -99,16 +99,18 @@ public class BoardController extends HttpServlet {
 			int result = service.update(request, response);
 			
 			if(result == 1) { //성공
-				response.sendRedirect("content.board?bno=" + request.getParameter("bno") ); 
+				response.sendRedirect("content.board?bul_num=" + request.getParameter("bul_num") ); 
 			} else { //실패
-				response.sendRedirect("modify.board?bno=" + request.getParameter("bno") ); 
+				response.sendRedirect("modify.board?bul_num=" + request.getParameter("bul_num") ); 
 			}
 			
 			
-		} else if( path.equals("/board/delete.board")) { //삭제기능
+		} else if( path.equals("/book/delete.board")) { //삭제기능
 			
 			service.delete(request, response);
 			response.sendRedirect("list.board"); //목록으로 이동
+		}else if (path.equals("/book/list1.board")) {
+			
 		}
 		
 		
