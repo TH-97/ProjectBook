@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ include file="/include/header.jsp"%>
+<%@ include file = "/include/header1.jsp" %>
+<%@ include file = "/include/header2.jsp" %>
 <style>
 table {
 	width: 20%;
@@ -57,7 +58,7 @@ input {
 				<td>성별</td>
 				<td><input type="radio" name="user_gender" value="M" checked>남자
 				</td>
-				<td><input type="radio" name="user_gender" value="W">
+				<td><input type="radio" name="user_gender" value="F">
 					여자</td>
 			</tr>
 

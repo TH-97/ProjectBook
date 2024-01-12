@@ -7,27 +7,37 @@ public class BoardVO {
 	private int bul_num;
 	private String title;
 	private String content;
-	private int like_count;
 	private Timestamp regdate;
+	private int like_count;
+	private int book_num;
 	private String user_id;
+	private String writer;
+	private int hit;
+
 	
 	public BoardVO() {
 	}
 
-	public BoardVO(int bul_num, String title, String content, int like_count, Timestamp regdate,String user_id) {
+	public BoardVO(int bul_num, String title, String content, Timestamp regdate,int like_count, int book_num,
+			String user_id, String writer, int hit
+			) {
 		super();
 		this.bul_num = bul_num;
 		this.title = title;
 		this.content = content;
-		this.like_count = like_count;
 		this.regdate = regdate;
+		this.like_count = like_count;
+		this.book_num = book_num;
 		this.user_id = user_id;
+		this.writer = writer;
+		this.hit = hit;
+		
 	}
 	
 	@Override
 	public String toString() {
-		return "BoardVO [bul_num=" + bul_num + ", title=" + title + ", content=" + content + ", like_count="
-				+ like_count + ", regdate=" + regdate + ", user_id=" + user_id + "]";
+		return "BoardVO [bul_num=" + bul_num + ", writer=" + writer + ", title=" + title + ", content=" + content + ", hit="
+				+ hit + ", regdate=" + regdate + "]";
 	}
 
 	public int getBul_num() {
@@ -54,6 +64,14 @@ public class BoardVO {
 		this.content = content;
 	}
 
+	public Timestamp getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Timestamp regdate) {
+		this.regdate = regdate;
+	}
+
 	public int getLike_count() {
 		return like_count;
 	}
@@ -62,12 +80,12 @@ public class BoardVO {
 		this.like_count = like_count;
 	}
 
-	public Timestamp getRegdate() {
-		return regdate;
+	public int getBook_num() {
+		return book_num;
 	}
 
-	public void setRegdate(Timestamp regdate) {
-		this.regdate = regdate;
+	public void setBook_num(int book_num) {
+		this.book_num = book_num;
 	}
 
 	public String getUser_id() {
@@ -78,9 +96,20 @@ public class BoardVO {
 		this.user_id = user_id;
 	}
 
+	public String getWriter() {
+		return writer;
+	}
 
-	
-	
-	
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
 	
 }

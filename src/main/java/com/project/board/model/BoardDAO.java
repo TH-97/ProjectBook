@@ -88,7 +88,7 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from board order by bno desc";
+		String sql = "select * from board order by bul_num desc";
 		
 		try {
 			
@@ -99,15 +99,16 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				
+				System.out.println("들어왔음");
 				int bul_num = rs.getInt("bul_num");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
-				int like_count = rs.getInt("like_count");
+				String writer = rs.getString("writer");
+				int hit = rs.getInt("hit");
 				Timestamp regdate = rs.getTimestamp("regdate");
-				String user_id = rs.getString("user_id");
 				
-				BoardVO vo = new BoardVO(bul_num, title, content, like_count, regdate, user_id);
+				BoardVO vo = new BoardVO(bul_num, title, content,
+						 regdate,0,0,null,writer,hit);
 								
 				list.add(vo);
 			}
@@ -131,7 +132,7 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from board where bul_num = ?";
+		String sql = "select * from board where bno = ?";
 		
 		try {
 			
@@ -144,18 +145,18 @@ public class BoardDAO {
 			
 			if(rs.next()) {
 				
-				int bul_num = rs.getInt("bul_num");
-				String user_id = rs.getString("user_id");
+				int bul_num2 = rs.getInt("bul_num");
+				String writer = rs.getString("writer");
 				String title = rs.getString("title");
 				String content = rs.getString("content");
-				int like_count = rs.getInt("like_count");
+				int hit = rs.getInt("hit");
 				Timestamp regdate = rs.getTimestamp("regdate");
 				
-				vo.setBul_num(bul_num);
-				vo.setUser_id(user_id);
+				vo.setBul_num(bul_num2);
+				vo.setWriter(writer);
 				vo.setTitle(title);
 				vo.setContent(content);
-				vo.setLike_count(like_count);
+				vo.setHit(hit);
 				vo.setRegdate(regdate);
 			}
 		} catch (Exception e) {
@@ -168,13 +169,13 @@ public class BoardDAO {
 	}
 	
 	//글 수정
-	public int update(String bul_num, String title, String content) {
+	public int update(String bno, String title, String content) {
 		int result = 0;
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update board set title = ?, content = ? where bul_num = ?";
+		String sql = "update board set title = ?, content = ? where bno = ?";
 		
 		try {
 			conn = dataSource.getConnection();
@@ -182,7 +183,7 @@ public class BoardDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, title );
 			pstmt.setString(2, content );
-			pstmt.setString(3, bul_num );
+			pstmt.setString(3, bno );
 			
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -195,19 +196,19 @@ public class BoardDAO {
 	}
 	
 	//삭제기능(삭제는 나중에 컬럼을 하나 만들고 사용하지 않음 Y, N)
-	public void delete(String bul_num) {
+	public void delete(String bno) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "delete from board where bul_num = ?";
+		String sql = "delete from board where bno = ?";
 		
 		try {
 			
 			conn = dataSource.getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bul_num);
+			pstmt.setString(1, bno);
 			
 			pstmt.executeUpdate();
 			
@@ -220,19 +221,19 @@ public class BoardDAO {
 	}
 	
 	//조회수작업
-	public void hitUpdate(String bul_num) {
+	public void hitUpdate(String bno) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update board set like_count = like_count + 1 where bul_num = ?";
+		String sql = "update board set hit = hit + 1 where bno = ?";
 		
 		try {
 			
 			conn = dataSource.getConnection();
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bul_num);
+			pstmt.setString(1, bno);
 			
 			pstmt.executeUpdate();
 			
