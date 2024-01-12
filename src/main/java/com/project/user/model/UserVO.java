@@ -11,20 +11,21 @@ public class UserVO {
 	private String user_email;
 	private String user_address;
 	private String user_gender;
-	private int user_balance;
+	private String user_phone;
 	
 	public UserVO() {
 	}
 
-	public UserVO(String id, String pw, String name, String email, String address, String gender, int balance) {
+	public UserVO(String user_id, String user_pw, String user_name, String user_email, String user_address,
+			String user_gender, String user_phone) {
 		super();
-		this.user_id = id;
-		this.user_pw = pw;
-		this.user_name = name;
-		this.user_email = email;
-		this.user_address = address;
-		this.user_gender = gender;
-		this.user_balance = balance;
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_email = user_email;
+		this.user_address = user_address;
+		this.user_gender = user_gender;
+		this.user_phone = user_phone;
 	}
 
 	public String getUser_id() {
@@ -75,13 +76,14 @@ public class UserVO {
 		this.user_gender = user_gender;
 	}
 
-	public int getUser_balance() {
-		return user_balance;
+	public String getUser_phone() {
+		return user_phone;
 	}
 
-	public void setUser_balance(int user_balance) {
-		this.user_balance = user_balance;
+	public void setUser_phone(String user_phone) {
+		this.user_phone = user_phone;
 	}
 
 	
+
 }

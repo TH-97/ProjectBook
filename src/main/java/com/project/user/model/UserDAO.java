@@ -46,6 +46,9 @@ public class UserDAO {
 		
 		try {
 			conn = dataSource.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			
 			pstmt.setString(1, id);
 			
 			rs = pstmt.executeQuery();
@@ -57,6 +60,7 @@ public class UserDAO {
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.printStackTrace();
 		} finally {
 			DButil.close(conn, pstmt, rs);
 		}
@@ -75,8 +79,9 @@ public class UserDAO {
 				+ "user_name,"
 				+ "user_email,"
 				+ "user_address,"
-				+ "user_gender)"
-					+"values(?,?,?,?,?,?)";
+				+ "user_gender,"
+				+ "user_phone)"
+					+"values(?,?,?,?,?,?,?)";
 		
 		try {
 			conn = dataSource.getConnection();
@@ -89,6 +94,7 @@ public class UserDAO {
 			pstmt.setString(4,vo.getUser_email());
 			pstmt.setString(5,vo.getUser_address());
 			pstmt.setString(6,vo.getUser_gender());
+			pstmt.setString(7,vo.getUser_phone());
 			
 			pstmt.executeQuery();
 			
@@ -160,9 +166,9 @@ public class UserDAO {
 				String user_email = rs.getString("user_email");
 				String user_address = rs.getString("user_address");
 				String user_gender = rs.getString("user_gender");
-				int user_balance = rs.getInt("user_balance");
+				String user_phone = rs.getString("user_phone");
 				
-				vo = new UserVO(id ,null , user_name , user_email , user_address , user_gender , user_balance);
+				vo = new UserVO(id ,null , user_name , user_email , user_address , user_gender , user_phone);
 				
 			}
 		} catch (Exception e) {
@@ -183,7 +189,7 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update users set user_pw = ? , user_name = ? , user_email =? ,user_address=? ,user_gender = ? where user_id = ?";
+		String sql = "update users set user_pw = ? , user_name = ? , user_email =? ,user_address=? ,user_gender = ?,user_phone = ? where user_id = ?";
 		
 		try {
 			conn = dataSource.getConnection();
@@ -194,7 +200,8 @@ public class UserDAO {
 			pstmt.setString(3,vo.getUser_email());
 			pstmt.setString(4,vo.getUser_address());
 			pstmt.setString(5,vo.getUser_gender());
-			pstmt.setString(6,vo.getUser_id());
+			pstmt.setString(6,vo.getUser_phone());
+			pstmt.setString(7,vo.getUser_id());
 			
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -231,35 +238,6 @@ public class UserDAO {
 		}
 		return result ;
 	}
-	//예치금 추가하기
-	public int add_balance(String id,int deposit) {
-		int result = 0;
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		String sql = "update users set user_balance = user_balance + ? where user_id = ?";
-		
-		
-		try {
-			conn = dataSource.getConnection();
-			pstmt = conn.prepareStatement(sql);
-			
-			//현재 금액 받고 그 금액에서 +
-			
-			pstmt.setInt(1,deposit);
-			pstmt.setString(2, id);
-			
-			result = pstmt.executeUpdate();
-			//deposit 출력해주기 
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}finally {
-			DButil.close(conn, pstmt, null);
-		}
-		
-		return result ;//1이면 성공 , 0 이면 실패
-	}
+	
 
 }

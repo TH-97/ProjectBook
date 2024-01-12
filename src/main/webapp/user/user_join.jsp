@@ -61,7 +61,12 @@ input {
 				<td><input type="radio" name="user_gender" value="F">
 					여자</td>
 			</tr>
-
+			
+			<tr>
+				<td>연락처</td>
+				<td colspan = "2"><input type = "text" name="user_phone" placeholder = "-을 제외하고 적어주세요" >
+			</td>
+			</tr>
 
 		</table>
 	${msg}

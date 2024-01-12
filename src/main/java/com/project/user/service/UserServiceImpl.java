@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService{
 		String email = request.getParameter("user_email");
 		String address = request.getParameter("user_address");
 		String gender = request.getParameter("user_gender");
+		String phone = request.getParameter("user_phone");
 
 		
 		int result = dao.idCheck(id);
@@ -29,7 +30,7 @@ public class UserServiceImpl implements UserService{
 		if(result == 1) {//아이디 중복
 			return 1;
 		}else {
-			UserVO vo = new UserVO(id, pw, name, email, address, gender, 0);
+			UserVO vo = new UserVO(id, pw, name, email, address, gender, phone);
 			dao.insertUser(vo);
 			return 0;
 		}
@@ -65,48 +66,38 @@ public class UserServiceImpl implements UserService{
 		String email = request.getParameter("user_email");
 		String address = request.getParameter("user_address");
 		String gender = request.getParameter("user_gender");
-		int balance =Integer.valueOf(request.getParameter("user_balance"));
+		String phone = request.getParameter("user_phone");
 		
-		UserVO vo = new UserVO(id, pw, name, email, address, gender, balance);
+		UserVO vo = new UserVO(id, pw, name, email, address, gender, phone);
 		result = dao.update(vo);
 		
-		return result;
-	}
-
-	@Override
-	public int delete(HttpServletRequest request, HttpServletResponse response) {
-		int result = 0;
-		
-		HttpSession session = request.getSession();
-		
-		String id = (String)session.getAttribute("user_id");
-		String pw = request.getParameter("pw");
-		
-		UserVO vo = dao.login(id, pw);
-		
-		if(vo !=null) {//비밀번호 일치 즉 삭제가능
-			dao.delete(id);
-			session.invalidate();
-			return 1; //삭제완료
-		}else {
-			return 0; //계정이 없거나 비밀번호 일치하징낳음
+		if(result == 1) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user_name",name);
 		}
-		
-		
+		return result;
 	}
 
 	@Override
-	public int add_balance(HttpServletRequest request, HttpServletResponse response) {
-		int result = 0 ;
+	public void delete(HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();
+		
 		String id = (String)session.getAttribute("user_id");
-		
-		String deposit = request.getParameter("deposit");
-		
-		result = dao.add_balance(id,Integer.valueOf(deposit) );
-		
+		dao.delete(id);
+		session.invalidate();
+
+			
+	}
+
+	@Override
+	public int idcheck(HttpServletRequest request, HttpServletResponse response) {
+		int result = 0;
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("user_id");
+		result = dao.idCheck(id);
 		return result;
 	}
-	
-}
+
+		
+	}
