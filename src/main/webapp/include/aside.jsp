@@ -48,7 +48,7 @@
 </body>
 <div class="aside_right" id="custom_side">
 	
-		<h3>님 </h3>
+		<h3>${sessionScope.user_name }님 </h3>
 		<h3>환영합니다</h3>
 		<h3>^0^</h3>
 		<hr>

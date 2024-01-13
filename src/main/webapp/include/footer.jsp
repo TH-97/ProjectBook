@@ -1,8 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<header>
 <style>
-div{
+.container{
 	margin: auto;
 	display: flex;
     flex-direction: column;  
@@ -10,10 +7,6 @@ div{
     align-items: center;
 }
 
-footer{
-	position : absolute;
-	bottom : 0;
-}
 .col-lg-12 text-center{
 	align-items: center;
 	vertical-align: middle;

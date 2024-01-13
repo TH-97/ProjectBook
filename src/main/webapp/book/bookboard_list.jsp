@@ -9,7 +9,7 @@
 <div class="container">
 		<h2>거래게시판</h2>
 
-		<table class="table table-bordered">
+		<table class="table table-bordered" border = "1">
 			<thead>
 				<tr>
 					<th>글 번호</th>

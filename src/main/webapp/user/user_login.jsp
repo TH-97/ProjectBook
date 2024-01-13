@@ -14,7 +14,7 @@
 	<hr>
 
 	<form action = "loginForm.user" method = "post" id="login-form">
-	<input type="text" name = "user_id" value = "${search } placeholder = "아이디"><br><br>
+	<input type="text" name = "user_id" value = "${search }" placeholder = "아이디"> <br><br>
 	<input type ="password" name = "user_pw" placeholder = "비밀번호"><br><br>
 	${msg }<br>
 	<input type = "submit" value = "로그인" class="btn btn-default">&nbsp;&nbsp;&nbsp;&nbsp;

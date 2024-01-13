@@ -4,12 +4,6 @@
 
 <%@ include file="/include/header1.jsp"%>
 <%@ include file="/include/header2.jsp"%>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>도중</title>
 <style>
 .ser{
    box-shadow: 0 0 20px #795cfa, 0 0 40px #b5a5fa;
