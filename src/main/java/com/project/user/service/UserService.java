@@ -13,4 +13,5 @@ public interface UserService {
 	public int update(HttpServletRequest request , HttpServletResponse response);
 	public void delete(HttpServletRequest request , HttpServletResponse response);
 	public int idcheck(HttpServletRequest request , HttpServletResponse response);
+	public String idsearch(HttpServletRequest request , HttpServletResponse response);
 }

@@ -60,9 +60,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void delete(HttpServletRequest request, HttpServletResponse response) {
-		
 		String bul_num = request.getParameter("bul_num");
-		System.out.println(bul_num);
 		dao.delete(bul_num);
 	}
 

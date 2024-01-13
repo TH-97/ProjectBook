@@ -9,12 +9,12 @@
 	<h2>로그인페이지</h2>
 	<hr>
 	<form action = "loginForm.user" method = "post">
-	<input type="text" name = "user_id" placeholder = "아이디"><br><br>
+	<input type="text" name = "user_id" value = "${search }" placeholder = "아이디"><br><br>
 	<input type ="password" name = "user_pw" placeholder = "비밀번호"><br><br>
 	${msg }<br>
 	<input type = "submit" value = "로그인" class="btn btn-default">&nbsp;&nbsp;&nbsp;&nbsp;
 	<input type = "button" value = "회원가입" class = "btn btn-default" onclick="location.href='join.user';">&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type = "button" value = "아이디찾기" class = "btn btn-default" onclick = "location.href='serach.user;'">
+	<input type = "button" value = "아이디찾기" class = "btn btn-default" onclick = "location.href='search.user';">
 	
 
 	</form>

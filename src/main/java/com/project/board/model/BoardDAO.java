@@ -218,7 +218,7 @@ public class BoardDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bul_num);
 			
-			pstmt.executeUpdate();
+		pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
