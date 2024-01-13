@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>도중</title>
 <style>
 .ser{
    box-shadow: 0 0 20px #795cfa, 0 0 40px #b5a5fa;
@@ -21,8 +21,10 @@
    text-align: center;
    box-sizing: 80px;
    font-size: 35px
-    align-items: center;
-    float: center;
+   align-items: center;
+   float: center;
+   	outline: none;
+	border: none;
 
 }
 form{
@@ -55,15 +57,18 @@ span{
 body{
    background-color:linearGradient(105deg, rgb(136, 124, 241/100%) 39%, rgb(124, 241, 192/ 100%) 96%);
 }
+.btn btn-default{
+ 	background-color: #AAA9F5;
+}
+ 
 </style>
 </head>
 
 <body>
 	<span>
 		<form action="book/search.book" method="post">
-			<input type="text" color=#AAA9F5; class="ser" name="search_book"
-				placeholder="도서검색"> <input type="submit" value="검색"
-				class="btn btn-default">
+			<input type="text" color=#AAA9F5; class="ser" name="search_book" placeholder="도서검색"> 
+			<input type="submit" value="검색" class="btn btn-default">
 		</form>
 	</span>
 	<div></div>
@@ -71,5 +76,4 @@ body{
 
 </body>
 </html>
-<%@ include file="../include/aside.jsp" %>
 <%@ include file="../include/footer.jsp"%>

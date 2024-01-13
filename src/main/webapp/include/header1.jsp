@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>도중</title>
 <style type="text/css">
 #header {
 	font-weight: bold;
@@ -115,23 +115,20 @@
 		<div class="wrapper">
 
 			<div class="title">
-			<li><a class="home" href="${pageContext.request.contextPath }/home.jsp">홈</a></li>
+			<li><a class="home" href="${pageContext.request.contextPath }/home.jsp">Home</a></li>
 			</div>
-			<ul class="listst">
-				<li><a class="lists" href="${pageContext.request.contextPath }/book/list.board">팔래</a></li>
-			</ul>
 			<ul class="logmain">
 				<c:choose>
 					<c:when test="${sessionScope.user_id == null }">
-						<li><a class="log" href="${pageContext.request.contextPath }/user/login.user">로그인</a></li>
-						<li><a class="log" href="${pageContext.request.contextPath }/user/join.user" style="color: red">회원가입</a></li>
+						<li><a class="log" href="${pageContext.request.contextPath }/user/login.user">login</a></li>
+						<li><a class="log" href="${pageContext.request.contextPath }/user/join.user" >join</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a class="log" href="${pageContext.request.contextPath }/user/logout.user">로그아웃</a></li>
-						<li><a class="log" href="${pageContext.request.contextPath }/user/mypage.user" style="color: red">마이페이지</a></li>
+						<li><a class="log" href="${pageContext.request.contextPath }/user/logout.user">logout</a></li>
+						<li><a class="log" href="${pageContext.request.contextPath }/user/mypage.user">mypage</a></li>
 					</c:otherwise>
 				</c:choose>
-
+				<li><a class="log" href="${pageContext.request.contextPath }/book/list.board">list</a></li>
 			</ul>
 
 		</div>

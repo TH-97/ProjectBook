@@ -2,6 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ include file = "/include/header1.jsp" %>
 <%@ include file = "/include/header2.jsp" %>
+<header>
+<style>
+h2{
+	color: #654cd6;
+	font-weight: bold;
+}
+
+</style>
+</header>
 
 <div align = "center" class = "div_center">
 	<h2>현재 비밀번호를 입력하세요.</h2>
