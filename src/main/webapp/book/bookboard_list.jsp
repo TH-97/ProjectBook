@@ -29,7 +29,7 @@
 				<tr>
 					<td>${vo.bul_num }</td>
 					<td>${vo.writer }</td>
-					<td>${vo.state }</td>
+					<td >${vo.state }</td>
 					<td><a href="content.board?bul_num=${vo.bul_num }&state=${vo.state}">${vo.title }</a></td>
 					<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd" /></td>
 					<td>${vo.hit }</td>

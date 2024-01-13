@@ -20,7 +20,7 @@
 			
 			<tr>
 				<td>거래상태</td>
-				<td><input type="radio" name = "state" ${vo.state.equals("판매") ? 'checked' : ''} value="판매" >판매</td>
+				<td><input style="color:red"type="radio" name = "state" ${vo.state.equals("판매") ? 'checked' : ''} value="판매" >판매</td>
 				<td><input type="radio" name = "state" ${vo.state.equals("구매") ? 'checked' : ''} value="구매" >구매</td>
 				<td><input type="radio" name = "state" ${vo.state.equals("거래완료") ? 'checked' : ''} value="거래완료" >거래완료</td>
 				

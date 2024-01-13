@@ -12,7 +12,7 @@
 	float: center;
 	line-height: 50px;
 	vertical-align: middle;
-	text-align: center;
+	margin-left: 815px;
 	@import url('https://fonts.googleapis.com/css2?family=Diphylleia&display=swap');
 	font-family: 'Diphylleia', serif;
 	font-size: 75px;

@@ -48,16 +48,16 @@ td {
 				<thead>
 					<tr>
 						<td rowspan="7">이미지</td>
-						<td>책 제목</td>
+						<td>제목</td>
 						<td style="height: 40px; font-size: 20px">${vo.book_name}</td>
 						<td rowspan="3"><input type="button" value="구매하기"<%-- onclick="location.href='buy.book?book_num=${vo.book_num}'; " --%>></td>
 					</tr>
 					<tr>
-						<td>책 저자</td>
+						<td>글쓴이</td>
 						<td>${vo.book_author}</td>
 					</tr>
 					<tr>
-						<td>책 카테고리</td>
+						<td></td>
 						<td>${vo.book_category}</td>
 					</tr>
 

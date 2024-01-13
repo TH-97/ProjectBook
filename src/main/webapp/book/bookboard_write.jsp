@@ -29,7 +29,6 @@
 					value="${sessionScope.user_id }" size="10" required readonly>
 				</td>
 			</tr>
-			<tr>
 				<td>글 내용</td>
 				<td><textarea rows="10" style="width: 95%;" name="content"></textarea>
 				</td>
