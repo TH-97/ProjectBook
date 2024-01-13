@@ -33,7 +33,7 @@
 		window.addEventListener('scroll', () => {
 			//let a = document.getElementById("custom_side").scrollTop;
 			//console.log(a)
-			if(window.scrollY >= 190) {
+			if(window.scrollY >= 190) {hiy 
 				document.getElementById("custom_side").style.position = "fixed";
 				document.getElementById("custom_side").style.top = "93px";
 			} else {
