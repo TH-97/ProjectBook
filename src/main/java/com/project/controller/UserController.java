@@ -53,6 +53,15 @@ public class UserController extends HttpServlet {
 			request.getRequestDispatcher("user_login.jsp").forward(request, response);
 
 		}else if(path.equals("/user/joinForm.user")) {
+			String user_pw =request.getParameter("user_pw");
+			String user_pw_check =request.getParameter("user_pw_check");
+			
+			if(!user_pw.equals(user_pw_check)) {
+			
+				request.setAttribute("msg", "비밀번호 확인란을 확인해주세요");
+				request.getRequestDispatcher("user_join.jsp").forward(request, response);
+			}
+			
 			int result = service.join(request,response);
 			if(result == 1) { //아이디 이미 존재
 				response.setContentType("text/html; charSet = UTF-8");
@@ -118,6 +127,17 @@ public class UserController extends HttpServlet {
 			request.getRequestDispatcher("user_update.jsp").forward(request, response);
 
 		}else if(path.equals("/user/updateForm.user")) {
+			
+			String user_pw =request.getParameter("user_pw");
+			String user_pw_check =request.getParameter("user_pw_check");
+			
+			if(!user_pw.equals(user_pw_check)) {
+			
+				request.setAttribute("msg", "비밀번호 확인란을 확인해주세요");
+				request.getRequestDispatcher("user_update.jsp").forward(request, response);
+			}
+			
+			
 			//0이면 실패 , 1이면 성공
 			int result = service.update(request, response);
 
@@ -183,6 +203,28 @@ public class UserController extends HttpServlet {
 				
 
 			}
+		}else if(path.equals("/user/search.user")) { //아이디 찾기
+			
+			request.getRequestDispatcher("user_search.jsp").forward(request, response);
+			
+		}else if(path.equals("/user/searchForm.user")) {
+			String user_id = service.idsearch(request, response);
+			
+			if(user_id ==null) {
+				response.setContentType("text/html; charset=UTF-8");
+
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('찾는 아이디가 없습니다')");
+				out.println("location.href='user_search.jsp';");
+				out.println("</script>");
+				
+			}else {
+				request.setAttribute("search", user_id);
+				request.getRequestDispatcher("user_login.jsp").forward(request, response);
+			}
+		
+			
 		}
 	}
 

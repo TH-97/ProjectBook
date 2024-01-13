@@ -38,7 +38,7 @@ input {
 				<td colspan="2"><input type="password" name="user_pw_check"
 					required placeholder="비밀번호와 똑같이 입력하세요"></td>
 			</tr>
-
+	
 			<tr>
 				<td>이름</td>
 				<td colspan="2"><input type="text" name="user_name"
@@ -68,7 +68,7 @@ input {
 
 
 		</table>
-		
+		${msg }
 		<table>
 			<tr>
 				<td><input type="submit" value="수정" class="btn btn-default"></td>

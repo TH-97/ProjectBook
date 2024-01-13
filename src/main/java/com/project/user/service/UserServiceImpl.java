@@ -99,5 +99,19 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
+	@Override
+	public String idsearch(HttpServletRequest request, HttpServletResponse response) {
+		
+		String user_name = request.getParameter("user_name");
+		String user_phone = request.getParameter("user_phone");
+		
+	
+		
+		String user_id  = dao.idSearch(user_name , user_phone);
+		
+		
+		return user_id;
+	}
+
 		
 	}

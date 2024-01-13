@@ -239,5 +239,36 @@ public class UserDAO {
 		return result ;
 	}
 	
+	public String idSearch(String user_name , String user_phone) {
+		String user_id =null;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql ="select * from users where user_name = ? and user_phone = ?";
+	
+		
+		try {
+			conn = dataSource.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, user_name);
+			pstmt.setString(2, user_phone);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				user_id = rs.getString("user_id");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DButil.close(conn, pstmt, rs);
+		}
+		System.out.println(user_id);
+		return user_id;
+	}
 
 }
