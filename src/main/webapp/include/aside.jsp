@@ -3,19 +3,22 @@
 <aside>
 	<style>
 		body {
-			height: 5000px;
+			height: 10px;
 		}
 	
 		.aside_right {
+			box-shadow: 0 0 20px #795cfa, 0 0 40px #b5a5fa;
+			padding: 15px 0px;
+			background-color: none;
 			position: absolute;
-			width: 200px;
+			width: 100px;
 			height: auto;
 			right: 100px;
 			top: 300px;
 			border: 1px solid #e3e3e3;
 			padding: 20px;
-			background-color: gray;
-			edge: shadow;
+			background-color: none;
+			boarder-radius: 0.5rem;
 		}
 		
 		@media (max-width: 900px) {
@@ -45,11 +48,9 @@
 </body>
 <div class="aside_right" id="custom_side">
 	
-		<h3>빠르게 구매하깅</h3>
+		<h3>님 </h3>
+		<h3>환영합니다</h3>
+		<h3>^0^</h3>
 		<hr>
-	
-		<a href="">[장바구니]</a><br>
-
-		<a href="">[예치금 충전]</a>
 	</div>
 </html>

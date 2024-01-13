@@ -3,12 +3,16 @@
     
 <%@ include file = "/include/header1.jsp" %>
 <%@ include file = "/include/header2.jsp" %>
+<link rel="stylesheet" href="../css/new.css">
+<style>
+
+</style>
 
 <div class ="div_center" style = "text-align: center;">
 
-	<h2>로그인페이지</h2>
+	<h2>Login</h2>
 	<hr>
-	<form action = "loginForm.user" method = "post">
+	<form action = "loginForm.user" method = "post" id="login-form">
 	<input type="text" name = "user_id" placeholder = "아이디"><br><br>
 	<input type ="password" name = "user_pw" placeholder = "비밀번호"><br><br>
 	${msg }<br>
@@ -23,6 +27,8 @@
 
 
 </div>
+
+	
 
 	
 
