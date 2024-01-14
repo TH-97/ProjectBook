@@ -277,20 +277,20 @@ public class BoardDAO {
 		}
 	}
 	// 게시물 검색
-		public ArrayList<BoardVO> searchBoard(String name) {
+		public ArrayList<BoardVO> searchBoard(String borad_name) {
 			ArrayList<BoardVO> list = new ArrayList<>();
 
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 
-			String sql = "select * from booklist where title like ?";
+			String sql = "select * from board where title like ?";
 
 			try {
 				conn = dataSource.getConnection();
 
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, "%"+name+"%");
+				pstmt.setString(1, "%"+borad_name+"%");
 
 				rs = pstmt.executeQuery();
 				while (rs.next()) {
@@ -318,6 +318,48 @@ public class BoardDAO {
 			return list;
 
 		}
+		// 나의 게시물 검색
+				public ArrayList<BoardVO> searchMyBoard(String writer1) {
+					ArrayList<BoardVO> list = new ArrayList<>();
+
+					Connection conn = null;
+					PreparedStatement pstmt = null;
+					ResultSet rs = null;
+
+					String sql = "select * from board where writer ?";
+
+					try {
+						conn = dataSource.getConnection();
+
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1,writer1);
+
+						rs = pstmt.executeQuery();
+						while (rs.next()) {
+							int bul_num = rs.getInt("bul_num");
+							String title = rs.getString("title");
+							String content = rs.getString("content");
+							Timestamp regdate =rs.getTimestamp("regdate");
+							int like_count = rs.getInt("like_count");
+							String writer = rs.getString("writer");
+							int hit = rs.getInt("hit");
+							String state = rs.getString("state");
+							
+							BoardVO vo = new BoardVO(bul_num,title,content,regdate,like_count,writer,hit,
+									state);
+
+							list.add(vo);
+
+						}
+					} catch (SQLException e) {
+						e.printStackTrace();
+					} finally {
+						JdbcUtil.close(conn, pstmt, rs);
+					}
+					System.out.println(list);
+					return list;
+
+				}
 	
 	
 	

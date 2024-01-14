@@ -126,15 +126,24 @@ public class BoardController extends HttpServlet {
 			out.println("location.href='list.board';");
 			out.println("</script>");
 		}
-		// 책 찾기
-		if (path.equals("/book/search.book")) {
+		// 게시물 이름으로 찾기
+		if (path.equals("/book/search.board")) {
 
 			ArrayList<BoardVO> list = service.searchBoard(request, response);
 			request.setAttribute("list", list);
 
-			request.getRequestDispatcher("book_search.jsp").forward(request, response);
+			request.getRequestDispatcher("bookboard_list.jsp").forward(request, response);
 
 		}
+		// 게시물 이름으로 찾기
+				if (path.equals("/book/searchMy.board")) {
+
+					ArrayList<BoardVO> list = service.searchMyBoard(request, response);
+					request.setAttribute("list", list);
+
+					request.getRequestDispatcher("bookboard_listMy.jsp").forward(request, response);
+
+				}
 
 	}
 

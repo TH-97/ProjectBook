@@ -108,10 +108,18 @@ public class BoardServiceImpl implements BoardService {
 	// 게시판 검색해서 전달
 	@Override
 	public ArrayList<BoardVO> searchBoard(HttpServletRequest request, HttpServletResponse response) {
-		String book_name = request.getParameter("search_book");
-		ArrayList<BoardVO> list = dao.searchBoard(book_name);
+		String board_name = request.getParameter("search_board");
+		ArrayList<BoardVO> list = dao.searchBoard(board_name);
 		return list;
 		
+	}
+
+	@Override
+	public ArrayList<BoardVO> searchMyBoard(HttpServletRequest request, HttpServletResponse response) {
+		String writer = request.getParameter("writer");
+		ArrayList<BoardVO> list = dao.searchMyBoard(writer);
+		return list;
+	
 	}
 
 	

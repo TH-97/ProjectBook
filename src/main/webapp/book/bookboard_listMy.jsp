@@ -7,7 +7,7 @@
 <%@ include file="../include/header2.jsp" %>
 
 <div class="container">
-		<h2>거래게시판</h2>
+		<h2>나의 거래게시판</h2>
 
 		<table class="table table-bordered" border = "1">
 			<thead>
@@ -42,9 +42,9 @@
 			<tbody>
 				<tr>
 					<td colspan="5" align="right">
-						<form action="search.board" class="form-inline" method="post" >
+						<form action="book.search" class="form-inline" >
 						  <div class="form-group">
-						    <input type="text" name="search_board" placeholder="제목검색" class="form-control" >
+						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
 						  	<input type="submit" value="검색" class="btn btn-default">
 							<input type="button" value="글 작성" class="btn btn-default" onclick="location.href='write.board'; ">
 						  </div>

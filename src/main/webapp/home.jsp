@@ -78,8 +78,8 @@ body{
 
 <body>
 	<span>
-		<form action="book/search.book" method="post">
-			<input type="text" color=#AAA9F5; class="ser" name="search_book" placeholder="게시물 검색..."> 
+		<form action="book/search.board" method="post">
+			<input type="text" color=#AAA9F5; class="ser" name="search_board" placeholder="게시물 검색..."> 
 			<br>
 			<br>
 

@@ -16,6 +16,7 @@ public interface BoardService {
 	public void delete(HttpServletRequest request, HttpServletResponse response);
 	public void hitUpdate(HttpServletRequest request, HttpServletResponse response);
 	public ArrayList<BoardVO> searchBoard(HttpServletRequest request, HttpServletResponse response);
+	public ArrayList<BoardVO> searchMyBoard(HttpServletRequest request, HttpServletResponse response);
 }
 
 
