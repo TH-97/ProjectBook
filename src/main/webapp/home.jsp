@@ -62,13 +62,13 @@ body{
     min-height: 50px;
     background: linear-gradient(
         90deg,
-        rgba(129, 230, 217, 1) 0%,
-        rgba(79, 209, 197, 1) 100%
+        #B4B4FF 0%,
+        #B4B4FF 100%
     );
     border-radius: 1000px;
-    color: #795cfa;
+    color: white;
     cursor: pointer;
-    box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
+    box-shadow: 12px 12px 24px #B4B4FF;
     font-weight: 700;
     transition: 0.3s;
 }
