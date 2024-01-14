@@ -4,6 +4,7 @@ package com.project.board.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -11,6 +12,7 @@ import java.util.Base64;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.ProjectBook.book.model.BookVO;
 import com.ProjectBook.util.JdbcUtil;
 
 import oracle.jdbc.proxy.annotation.Pre;
@@ -274,6 +276,48 @@ public class BoardDAO {
 			JdbcUtil.close(conn, pstmt, null);
 		}
 	}
+	// 게시물 검색
+		public ArrayList<BoardVO> searchBoard(String name) {
+			ArrayList<BoardVO> list = new ArrayList<>();
+
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+
+			String sql = "select * from booklist where title like ?";
+
+			try {
+				conn = dataSource.getConnection();
+
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, "%"+name+"%");
+
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					int bul_num = rs.getInt("bul_num");
+					String title = rs.getString("title");
+					String content = rs.getString("content");
+					Timestamp regdate =rs.getTimestamp("regdate");
+					int like_count = rs.getInt("like_count");
+					String writer = rs.getString("writer");
+					int hit = rs.getInt("hit");
+					String state = rs.getString("state");
+					
+					BoardVO vo = new BoardVO(bul_num,title,content,regdate,like_count,writer,hit,
+							state);
+
+					list.add(vo);
+
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				JdbcUtil.close(conn, pstmt, rs);
+			}
+			System.out.println(list);
+			return list;
+
+		}
 	
 	
 	

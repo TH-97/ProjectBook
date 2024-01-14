@@ -54,6 +54,24 @@ body{
 .btn btn-default{
  	background-color: #AAA9F5;
 }
+
+.w-btn-neon2 {
+    position: relative;
+    border: none;
+    min-width: 200px;
+    min-height: 50px;
+    background: linear-gradient(
+        90deg,
+        rgba(129, 230, 217, 1) 0%,
+        rgba(79, 209, 197, 1) 100%
+    );
+    border-radius: 1000px;
+    color: #795cfa;
+    cursor: pointer;
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
+    font-weight: 700;
+    transition: 0.3s;
+}
  
 </style>
 </head>
@@ -61,8 +79,11 @@ body{
 <body>
 	<span>
 		<form action="book/search.book" method="post">
-			<input type="text" color=#AAA9F5; class="ser" name="search_book" placeholder="도서검색"> 
-			<input type="submit" value="검색" class="btn btn-default">
+			<input type="text" color=#AAA9F5; class="ser" name="search_book" placeholder="게시물 검색..."> 
+			<br>
+			<br>
+
+			<input type="submit" value="검색" class="w-btn-neon2">
 		</form>
 	</span>
 	<div></div>

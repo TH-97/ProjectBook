@@ -29,7 +29,7 @@
 				<tr>
 					<td>${vo.bul_num }</td>
 					<td>${vo.writer }</td>
-					<td >${vo.state }</td>
+					<td>${vo.state }</td>
 					<td><a href="content.board?bul_num=${vo.bul_num }&state=${vo.state}">${vo.title }</a></td>
 					<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd" /></td>
 					<td>${vo.hit }</td>
@@ -42,7 +42,7 @@
 			<tbody>
 				<tr>
 					<td colspan="5" align="right">
-						<form action="list.search" class="form-inline" >
+						<form action="book.search" class="form-inline" >
 						  <div class="form-group">
 						    <input type="text" name="search" placeholder="제목검색" class="form-control" >
 						  	<input type="submit" value="검색" class="btn btn-default">

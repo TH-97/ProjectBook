@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.project.board.model.BoardVO;
+import com.ProjectBook.book.model.BookVO;
 import com.project.board.model.BoardDAO;
 
 public class BoardServiceImpl implements BoardService {
@@ -102,6 +103,14 @@ public class BoardServiceImpl implements BoardService {
 				
 
 		
+		
+	}
+	// 게시판 검색해서 전달
+	@Override
+	public ArrayList<BoardVO> searchBoard(HttpServletRequest request, HttpServletResponse response) {
+		String book_name = request.getParameter("search_book");
+		ArrayList<BoardVO> list = dao.searchBoard(book_name);
+		return list;
 		
 	}
 
