@@ -5,10 +5,26 @@
 
 <%@ include file="../include/header1.jsp" %>
 <%@ include file="../include/header2.jsp" %>
+<header>
+<style>
+.div_center{
+	box-shadow: 0 0 20px #FAAC58, 0 0 40px #F5D0A9;
+	padding: 15px 0px;
+	background-color: none;
+	border-radius: 20px;
+	margin-left: 30%;
+	margin-right: 30%;
+	}
+h2{ color: #DBA901;
+	float: center;
+}
+</style>
 
+</header>
+<div class="div_center">
 <div class="container">
 		<h2>나의 거래게시판</h2>
-
+		
 		<table class="table table-bordered" border = "1">
 			<thead>
 				<tr>
@@ -55,6 +71,6 @@
 		
 		</table>
 	</div>
-
+</div>
 
 <%@ include file="../include/footer.jsp" %>

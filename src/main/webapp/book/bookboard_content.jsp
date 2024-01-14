@@ -2,20 +2,35 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<link rel="stylesheet" href="../css/new.css">
 <%@ include file="../include/header1.jsp"%>
 <%@ include file="../include/header2.jsp"%>
 
+<header>
+<style>
+.div_center{
+	box-shadow: 0 0 20px #FAAC58, 0 0 40px #F5D0A9;
+	padding: 15px 0px;
+	background-color: none;
+	border-radius: 20px;
+	margin-left: 30%;
+	margin-right: 30%;
+	}
+h2{ color: #DBA901;
+}
+</style>
 
+</header>
 <div align="center" class="div_center">
 
 
 	${vo.bul_num } ${vo.state }
 
 
-	<h3>게시글 내용 보기</h3>
+	<h2>게시글 내용 보기</h2>
 	<hr>
-	<table border="1" width="500">
+	
+<%--	<table border="1" width="500">
 		<tr>
 			<td width="20%">글번호</td>
 			<td width="30%">${vo.bul_num }</td>
@@ -54,7 +69,7 @@
 				
 				</c:if></td>
 		</tr>
-	</table>
+	</table> --%>
 	<table border="1" width="500">
 
 		<thead>

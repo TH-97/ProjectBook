@@ -4,8 +4,25 @@
 <%@ include file="../include/header1.jsp" %>
 <%@ include file="../include/header2.jsp" %>
 
-
+<link rel="stylesheet" href="../css/new.css">
 <div align="center" class="div_center">
+
+<header>
+<style>
+.div_center{
+	box-shadow: 0 0 20px #FAAC58, 0 0 40px #F5D0A9;
+	padding: 15px 0px;
+	background-color: none;
+	border-radius: 20px;
+	margin-left: 30%;
+	margin-right: 30%;
+	}
+h2{ color: #DBA901;
+}
+</style>
+
+</header>
+
 	<h2>게시판 글 수정</h2>
 	<hr>
 	 ${vo.state }

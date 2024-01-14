@@ -2,29 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ include file = "/include/header1.jsp" %>
 <%@ include file = "/include/header2.jsp" %>
+<link rel="stylesheet" href="../css/new.css">
 
 <div align = "center" class = "div_center">
 	<h2>아이디 찾기</h2>
 	<hr>
 	
-	<form action = "searchForm.user" method = "post">
-	<table>
-	<tr>
-		<td>이름</td>
-		<td>
-		 <input type = "text" name = "user_name">&nbsp;
-		 </td>
-	</tr>
-	<tr>
-		<td>연락처</td>
-		 <td><input type = "text" name = "user_phone" placeholder ="-을 제외하고 작성해주세요"> </td>
-	</tr>
-	<tr>
-		<td colspan = "2" align = "right">
-		<input type = "submit" value = "확인" class = "btn btn-default">
-		</td>
-	</tr>
-</table>
+	<form action = "searchForm.user" method = "post" id="login-form">
+
+		 <input type = "text" name = "user_name" placeholder ="이름">&nbsp;
+
+		 <input type = "text" name = "user_phone" placeholder ="연락처(-을 제외)">
+
+		 <input type = "submit" value = "확인" class = "btn btn-default">
+
 	</form>
 	${msg }
 
