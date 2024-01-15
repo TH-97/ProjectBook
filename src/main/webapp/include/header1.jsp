@@ -125,7 +125,7 @@
 					</c:when>
 					<c:otherwise>
 						<li><a class="log" href="${pageContext.request.contextPath }/user/logout.user">logout</a></li>
-						<li><a class="log" href="${pageContext.request.contextPath }/user/mypage.user">mypage</a></li>
+						<li><a class="log" href="${pageContext.request.contextPath }/user/mypage.user?wrier=${vo.writer}">mypage</a></li>
 					</c:otherwise>
 				</c:choose>
 				<li><a class="log" href="${pageContext.request.contextPath }/book/list.board">list</a></li>

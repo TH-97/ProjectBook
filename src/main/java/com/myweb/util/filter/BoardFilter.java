@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 //회원만 글을 쓸수 있도록 걸러내는 필터 (글등록화면, 글등록)
 
-@WebFilter({"/board/registForm.board","/board/write.board" })
+@WebFilter({"/board/registForm.board","/book/write.board" })
 public class BoardFilter implements Filter {
 
 	@Override

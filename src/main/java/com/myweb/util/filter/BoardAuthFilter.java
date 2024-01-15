@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 // 게시글 수정, 게시글 삭제는 당사자만 할 수있도록 함
-@WebFilter({"/board/registForm.board","/board/delete.board","/board/update.board","/book/write.board"})
+@WebFilter({"/board/registForm.board","/board/delete.board","/board/update.board",})
 public class BoardAuthFilter implements Filter {
 
 	@Override

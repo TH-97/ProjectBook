@@ -326,7 +326,7 @@ public class BoardDAO {
 					PreparedStatement pstmt = null;
 					ResultSet rs = null;
 
-					String sql = "select * from board where writer ?";
+					String sql = "select * from board where writer =  ?";
 
 					try {
 						conn = dataSource.getConnection();
