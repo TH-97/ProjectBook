@@ -136,14 +136,14 @@ public class BoardController extends HttpServlet {
 
 		}
 		// 게시물 이름으로 찾기
-				if (path.equals("/book/searchMy.board")) {
+		if (path.equals("/book/searchMy.board")) {
 
-					ArrayList<BoardVO> list = service.searchMyBoard(request, response);
-					request.setAttribute("list", list);
+			ArrayList<BoardVO> list = service.searchMyBoard(request, response);
+			request.setAttribute("list", list);
 
-					request.getRequestDispatcher("bookboard_listMy.jsp").forward(request, response);
+			request.getRequestDispatcher("bookboard_listMy.jsp").forward(request, response);
 
-				}
+		}
 
 	}
 

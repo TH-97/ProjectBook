@@ -117,6 +117,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public ArrayList<BoardVO> searchMyBoard(HttpServletRequest request, HttpServletResponse response) {
 		String writer = request.getParameter("writer");
+		System.out.println(writer);
 		ArrayList<BoardVO> list = dao.searchMyBoard(writer);
 		return list;
 	

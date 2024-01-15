@@ -24,7 +24,7 @@ public class BookDAO {
 		try {
 
 			InitialContext init = new InitialContext();
-			dataSource = (DataSource) init.lookup("java:comp/env/jdbc/oracle");
+			dataSource = (DataSource) init.lookup("java:comp/env/jdbc/oracle1");
 
 		} catch (Exception e) {
 			e.printStackTrace();
