@@ -12,12 +12,47 @@
 	padding: 15px 0px;
 	background-color: none;
 	border-radius: 20px;
-	margin-left: 30%;
-	margin-right: 30%;
+	margin-left: 15%;
+	margin-right: 15%;
 	}
 h2{ color: #DBA901;
 	float: center;
 }
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+}
+
+thead th:nth-child(1) {
+	width: 5%;
+}
+
+thead th:nth-child(2) {
+	width: 10%;
+}
+
+thead th:nth-child(3) {
+	width: 15%;
+}
+
+thead th:nth-child(4) {
+	width: 45%;
+}
+
+thread th:nth-child(5) {
+	width: 25%;
+}
+thread th:nth-child(6){
+	width: 50px;
+}
+
+th, td {
+	padding: 20px;
+}
+
+
 </style>
 
 </header>
@@ -32,8 +67,8 @@ h2{ color: #DBA901;
 					<th>작성자</th>
 					<th>거래상태</th>
 					<th>제목</th>
-					<th>날짜</th>
-					<th>조회수</th>
+					<th style = width:75px>날짜</th>
+					<th style = "width:50px;">조회수</th>
 				</tr>
 			</thead>
 	
@@ -48,7 +83,7 @@ h2{ color: #DBA901;
 					<td>${vo.state }</td>
 					<td><a href="content.board?bul_num=${vo.bul_num }&state=${vo.state}">${vo.title }</a></td>
 					<td><fmt:formatDate value="${vo.regdate }" pattern="yy-MM-dd" /></td>
-					<td>${vo.hit }</td>
+					<td style = "text-align:center;">${vo.hit }</td>
 				</tr>
 				</c:forEach>
 

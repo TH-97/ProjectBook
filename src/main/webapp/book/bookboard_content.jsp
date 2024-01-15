@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>  
 
 <link rel="stylesheet" href="../css/new.css">
 <%@ include file="../include/header1.jsp"%>
@@ -24,7 +25,6 @@ h2{ color: #DBA901;
 <div align="center" class="div_center">
 
 
-	${vo.bul_num } ${vo.state }
 
 
 	<h2>게시글 내용 보기</h2>
@@ -85,11 +85,11 @@ h2{ color: #DBA901;
 				<td>거래상태</td>
 				<td width="30%">${vo.bul_num }</td>
 				<td rowspan="2">작성일</td>
-				<td rowspan="2"></td>
+				<td rowspan="2"><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd" /></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td></td>
+				<td>${vo.writer }</td>
 			</tr>
 			<tr>
 				<td width="20%">글제목</td>

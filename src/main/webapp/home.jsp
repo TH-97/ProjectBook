@@ -49,7 +49,7 @@ span{
    font-size: var;
 }
 body{
-   background-color:linearGradient(105deg, rgb(136, 124, 241/100%) 39%, rgb(124, 241, 192/ 100%) 96%);
+   background-color:#faf8fc;
 }
 .btn btn-default{
  	background-color: #AAA9F5;

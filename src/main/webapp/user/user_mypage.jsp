@@ -24,12 +24,10 @@ outline-color: #795cfa;
 	<h2>My page</h2>
 	<hr>
 	<p>
-		${sessionScope.user_id }<b style="color: #f39d4c;">(${sessionScope.user_name })</b>님의
-		정보
+		${sessionScope.user_id }<b style="color: #f39d4c;">(${sessionScope.user_name })</b>님의		정보
 	</p>
 	<form id="login-form">
-	
-		<input type = "button" value = "내 작성글보기" class = "btn btn-default" onclick="location.href='${pageContext.request.contextPath}/book/searchMy.board?writer=${sessionScope.user_id }';">&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type = "button" value = "내 작성글보기" class = "btn btn-default" onclick="location.href='${pageContext.request.contextPath}/book/searchMy.board?writer=${sessionScope.user_id}';">&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type = "button" value = "내 찜목록" class = "btn btn-default" onclick="location.href='';">&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type = "button" value = "내 정보수정" class = "btn btn-default" onclick="location.href='${pageContext.request.contextPath}/user/update.user';">&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type = "button" value = "탈퇴하기" class = "btn btn-default" style="color:#f39d4c" onclick="location.href='${pageContext.request.contextPath }/user/delete.user';">&nbsp;&nbsp;&nbsp;&nbsp; 
